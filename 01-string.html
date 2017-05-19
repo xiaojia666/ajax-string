@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link href="css/base.css" rel="stylesheet"/>
+<link href="css/hf-main.css" rel="stylesheet"/>
+<link href="css/stylemain.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="v2-container"></div>
+<script src="js/jquery.min-1.11.0.js"></script>
+  <script>
+     $(function(){
+        $.ajax({
+          url:'http://192.168.5.151:8008/Org/GetOrgList/',
+          type:'get',
+          dataType:'json',
+          success:function(result){
+            console.log(result);
+            var info=result.Data;
+            console.log(info);
+            var info=JSON.parse(info);
+            var html='';
+             for(var i=0;i<info.length;i++){
+              html+='<div class="ovh-comm ky-main-list">';
+              html+='<div class="fl wid760 ovh-comm left-img pr10">';
+              html+='<div class="fl wid150 pt10">';
+              html+='<a href="#" target="_blank">';
+              html+='<img src="http://tracker.sydimg.com/group1/M00/1D/AE/wKgEZlWna0Tv7X-ZAAA28GwHjCc55..jpg">';
+              html+='</a>';
+              html+='</div>';
+              html+='<div class="fr wid650">';
+              html+='<div class="ky-list-tit">';
+              html+='<span class="fr c69f">';
+              html+='<a href="#" target="_blank">'+'查看全部21个课程&gt;&gt;'+'</a>';
+              html+='</span>';
+              html+='<a href="#" target="_blank">'+info[i].Name+'</a>';
+              html+='<span>'+' --（共'+'<b>'+'12314'+'</b>'+'人关注，'+'<b>'+'220'+'</b>'+'人报名）'+'</span>';
+              html+='</div>';
+              html+='<div class="ky-tag-main">';
+              html+='<i class="tag-main tag-1">'+'成人口语'+'</i>';
+              html+='<i class="tag-main tag-1">'+'零基础英语'+'</i>';
+              html+='<i class="tag-main tag-1">'+'四/六级'+'</i>';
+              html+='<i class="tag-main tag-1">'+'职场英语'+'</i>';
+              html+='<i class="tag-main tag-1">'+'行业英语'+'</i>';
+              html+='<i class="tag-main tag-1">'+'商务英语'+'</i>';
+              html+='<i class="tag-main tag-1">'+'BEC'+'</i>';
+              html+='<i class="tag-main tag-1">'+'托业'+'</i>';
+              html+='<i class="tag-main tag-2">'+'青少英语（11-18岁'+'</i>';
+              html+='<i class="tag-main tag-3">'+'托福'+'</i>';
+              html+='<i class="tag-main tag-3">'+'雅思'+'</i>';
+              html+='<i class="tag-main tag-3">'+'ACT'+'</i>';
+              html+='<i class="tag-main tag-3">'+'SAT'+'</i>';
+              html+='<i class="tag-main tag-3">'+'SSAT'+'</i>';
+              html+='<i class="tag-main tag-3">'+'GRE'+'</i>';
+              html+='<i class="tag-main tag-3">'+'GMAT'+'</i>';
+              html+='</div>';
+              html+='<div class="ky-address-tit">';
+              html+='<span class="fr">';
+              html+='<a href="#" target="_blank">'+'查看全部校区&gt;&gt;'+'</a>';
+              html+='</span>'+'校区地址'+'<i>'+'（共7个）'+'</i>';
+              html+='</div>';
+              html+='<div class="ky-add-con">'+info[i].School+'</div>';
+              html+='</div> '+'</div>';
+              html+='<div class="fr wid330">';
+              html+='<div class="kyeva tc">';
+              html+='<div class="mt20">';
+              html+='<input placeholder="手机号" class="inp-style-1" type="text">';
+              html+='</div>';
+              html+='<div class="mt20">';
+              html+='<input placeholder="验证码" class="inp-style-2" type="text">';
+              html+='<input type="submit" class="btn-style-1" value="获取验证码">'+'</div>';
+              html+='<div class="mt20">';
+              html+='<a href="#" class="btn-style-2">'+'获取报价'+'</a>';
+              html+='</div>';
+              html+='</div>';
+              html+='</div>';
+              html+='</div>';
+              }
+              $(".v2-container").html(html);
+          }
+        }) 
+     })
+     </script>
+</body>
+</html>
